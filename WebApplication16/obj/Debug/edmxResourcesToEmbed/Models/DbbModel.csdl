@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyprojectModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Table_2">
+    <Key>
+      <PropertyRef Name="STAFF_ID" />
+    </Key>
+    <Property Name="STAFF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STAFF_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="STAFF_QUALIFICATION" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="STAFF_AGE" Type="Int32" />
+    <Property Name="SPECIALIZATION" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="SALARY" Type="Int32" />
+    <Property Name="PHONE_NUMBER" Type="Int32" />
+    <Property Name="LOCATION" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DbbModels" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table_2" EntityType="Self.Table_2" />
+  </EntityContainer>
+</Schema>

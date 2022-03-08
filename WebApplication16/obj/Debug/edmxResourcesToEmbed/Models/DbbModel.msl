@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyprojectModel2StoreContainer" CdmEntityContainer="DbbModels">
+    <EntitySetMapping Name="Table_2">
+      <EntityTypeMapping TypeName="MyprojectModel2.Table_2">
+        <MappingFragment StoreEntitySet="Table_2">
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="STAFF_NAME" ColumnName="STAFF_NAME" />
+          <ScalarProperty Name="STAFF_QUALIFICATION" ColumnName="STAFF_QUALIFICATION" />
+          <ScalarProperty Name="STAFF_AGE" ColumnName="STAFF_AGE" />
+          <ScalarProperty Name="SPECIALIZATION" ColumnName="SPECIALIZATION" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+          <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

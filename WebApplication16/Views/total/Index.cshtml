@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication16.Models.Table_cus>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Style.cshtml";
+}
+
+
+<body style="background-color:lightpink;">
+    <h2 style="font-size:30px;font-weight:bold; text-align:center;">Billing record</h2>
+
+    <p class="btn btn-info">
+        @Html.ActionLink("Create New", "Add")
+    </p>
+    <table class="table table-bordered table-hover">
+        <tr style="background-color:black;color:white;">
+
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                MenuItem
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="background-color:silver;">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @(item.Table_food?.MenuName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    <a href="@Url.Action("Delete",new { id=item.CID})" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="font-weight:bold;text-align:right; font-size:20px;">Total price:@(Model.Where(x => x.Total != null).Sum(x => x.Total))</div>
+
+</body>
+<div class="btn btn-info" style="font-size:16px;background-color:lightblue;width:150px;height:25px;margin:5px;padding:5px;border-style:solid;border-color:black;">
+    @Html.ActionLink("Back to List","Payment", "Main")
+</div>

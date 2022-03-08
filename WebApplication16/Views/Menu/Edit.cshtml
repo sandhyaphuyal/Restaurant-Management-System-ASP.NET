@@ -1,0 +1,72 @@
+﻿@model WebApplication16.Models.Table_food
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Style.cshtml";
+}
+
+
+<body style="background-color:pink;">
+<div style="text-align:center;background-color:lightskyblue;" >
+    <h2 style="font-size:30px; font-weight:bold; color: #be412d; display:inline-block;border-bottom:3px solid red;">Edit</h2>
+</div>
+<br />
+
+@using (Html.BeginForm("Edit", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" style="background-color:pink;text-align:center;width:100%;border-size:3px;border-style=solid;border-color:black;">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MenuId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.MenuName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MenuName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MenuName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="UploadedFile" value="choose image" /><br /><br />
+            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-danger btn-block" />
+        </div>
+    </div>
+
+
+</div>
+}
+
+
+<div class="btn btn-info" style="font-size:16px;background-color:lightblue;width:150px;height:25px;margin:5px;padding:5px;border-style:solid;border-color:black;">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</body>
+
+
+

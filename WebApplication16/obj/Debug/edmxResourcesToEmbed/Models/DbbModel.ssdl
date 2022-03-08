@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyprojectModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Table_2">
+    <Key>
+      <PropertyRef Name="STAFF_ID" />
+    </Key>
+    <Property Name="STAFF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STAFF_NAME" Type="nvarchar" MaxLength="25" />
+    <Property Name="STAFF_QUALIFICATION" Type="nvarchar" MaxLength="25" />
+    <Property Name="STAFF_AGE" Type="int" />
+    <Property Name="SPECIALIZATION" Type="nvarchar" MaxLength="25" />
+    <Property Name="SALARY" Type="int" />
+    <Property Name="PHONE_NUMBER" Type="int" />
+    <Property Name="LOCATION" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityContainer Name="MyprojectModel2StoreContainer">
+    <EntitySet Name="Table_2" EntityType="Self.Table_2" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

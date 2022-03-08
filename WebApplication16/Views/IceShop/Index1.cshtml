@@ -1,0 +1,218 @@
+﻿
+
+@{
+    ViewBag.Title = "View1";
+    Layout = "~/Views/Shared/Style.cshtml";
+}
+
+
+
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand md-o h1" style="text-align:center;">DESSERTS BILLING</span>
+    </nav>
+    <div>
+        <div class="row" style="background-color:rosybrown;">
+            <div class="col-sm-3">
+                <div class="container">
+
+                    <div class="list-group-item list-group-item-action active">Item</div>
+                    <div class="panel-body bg-dark" style="color:white;width:100%;">
+                        <form id="frm-project">
+                            <div>
+                            <div class="form-group">
+
+                                <div>
+                                    <img src="~/yesh/vanillacake.jpg" id="vanilla" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>VANILLA FLAVORED</b>
+                                </div>
+                                <div>
+                                    <img src="~/yesh/blackforest.jpg" id="black" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>BLACK FOREST </b>
+                                </div>
+                                <div>
+                                    <img src="~/yesh/fruitcake.jpg" id="fruit" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>FRUIT CAKE</b>
+                                </div>
+                                <div>
+                                    <img src="~/yesh/mangocake.jpg" id="mango" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>MANGO FLAVORED</b>
+                                </div>
+                                </div>
+                                <div>
+                                    <img src="~/yesh/redvelvet.jpg" id="redvelvet" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>RED VELVET</b>
+                                </div>
+                                <div>
+                                    <img src="~/yesh/whiteforest.jpg" id="white" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>WHITE FOREST</b>
+                                </div>
+                                <div>
+                                    <img src="~/yesh/saltycake.jpg" id="salty" class="photo" width="100" height="100" data-toggle="modal" data-target="#exampleModal" />
+                                    <b>SALTY CAKE</b>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="container">
+                    <div class="list-group-item list-group-item-action active">Add Products</div>
+                    <table id="tbl-item" class="table table-dark table-bordered" cellpadding="0" cellspacing="0" align="left" style="width:60%;">
+                        <thead>
+                            <tr>
+                                <th>Delete</th>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                                
+                            </tr>
+                        <tbody></tbody>
+                        </thead>
+
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="container">
+                    <div class=" list-group-item list-group-item-action active">Bill</div>
+                    <div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label style="color:white;">Total</label>
+                        <input type="text" style="color:yellow; background-color:black;width:250px; font-size:30px;" id="total" ; placeholder="Total" />
+
+                    </div>
+                    <div style="position:right;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-warning" name="reset" id="reset" onclick="reset()">Reset</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enter the quantity</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Qty</label>
+                        <input type="number" id="qty" name="qty" placeholder="Qty" value="1" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="add()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </html>
+        @section Scripts{
+            <script src="~/Scripts/jquery-3.4.1.js"></script>
+            <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+            <script type="text/javascript">
+
+                var total = 0;
+                var tot = 0;
+                var price = 0;
+                var item = null;
+                var a = ""
+                $("img").on("click", function () {
+                    a = $(this).prop('id')
+                });
+                function add() {
+                    if (a == "vanilla") {
+                        item = "Vanilla Flavored";
+                        price = 120;
+                    }
+                    else if (a == "mango") {
+                        item = "Mango Flavored";
+                        price = 130;
+                    }
+                        else if (a == "fruit") {
+                        item = "Fruit Cake";
+                        price = 70;
+                    }
+                    else if (a == "redvelvet") {
+                        item = "Red Velvet";
+                        price = 120;
+                    }
+                    else if (a == "white") {
+                        item = "White Forest";
+                        price = 70;
+                    }
+                    else if (a == "black") {
+                        item = "Black Forest";
+                        price = 70;
+                    }
+                    else if (a == "salty") {
+                        item = "Salty Cake";
+                        price = 40;
+                    }
+                    var qty = $("#qty").val();
+                    tot = qty * price;
+                    var table = "<tr>" +
+                        "<td><button type='button' name='record' class='btn btn-warning' onclick='deleterow(this)'>Delete</td>" +
+                        "<td>" + item + "</td>" +
+                        "<td>" + price + "</td>" +
+                        "<td>" + qty + " </td>" +
+                        "<td>" + tot + "</td>" +
+                        "</tr>";
+                    total += Number(tot);
+                    $("#total").val(total);
+                    $("#tbl-item tbody").append(table);
+
+                    $("#exampleModal").modal("hide");
+
+
+                }
+                function deleterow(e) {
+                    total_cost = parseInt($(e).closest('tr').find('td:last').text(), 10);
+                    total -= total_cost;
+                    $('#total').val(total);
+                    $(e).parent().parent().remove();
+                }
+                function reset() {
+                    location.reload();
+                }
+            </script>
+        }
+
+
+
+
+
+
+
+
+

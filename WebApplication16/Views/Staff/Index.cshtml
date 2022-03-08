@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebApplication16.Models.Table_2>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Style.cshtml";
+}
+
+<br />
+<br />
+<body style="background-color:lightcoral;">
+
+<p><div style="border-width:2px;border-style:solid;border-color:black;border-radius:5px;height:25px;;width:7%;color:black;background-color:lightblue;">
+    @Html.ActionLink("Create New", "Create")
+</div>
+</p>
+<div style="border-width: 5px; border-style: solid; border-color: black;width:95%;margin:15px ;color:black;border-radius: 10px;background-color:lightgray;">
+    <hr />
+    <dl class="dl-horizontal">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.STAFF_ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.STAFF_NAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.STAFF_QUALIFICATION)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.STAFF_AGE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SPECIALIZATION)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SALARY)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PHONE_NUMBER)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LOCATION)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STAFF_ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STAFF_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STAFF_QUALIFICATION)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STAFF_AGE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SPECIALIZATION)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SALARY)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PHONE_NUMBER)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LOCATION)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.STAFF_ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.STAFF_ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.STAFF_ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div style="font-size:16px;background-color:lightblue;width:200px;height:50px;border-radius:7px;margin:10px;padding:10px;border-style:solid;border-color:black;">
+            @Html.ActionLink("GO TO MAINPAGE", "MAIN", "templete")
+        </div>
+        </body>

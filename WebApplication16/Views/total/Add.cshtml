@@ -1,0 +1,115 @@
+﻿@model WebApplication16.Models.Table_cus
+@{
+    ViewBag.Title = "AddNew";
+    Layout = "~/Views/Shared/Style.cshtml";
+}
+
+
+   
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal" style="background-color:lightpink;">
+        <div style="text-align:center;background-color:lightpink;">
+            <br /><br /><br />
+            <h2 style="font-size:30px; font-weight:bold; color:skyblue; display:inline-block;">Adding bill</h2>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MenuId, "MenuName", htmlAttributes : new { @class = "control-label col-sm-2" })
+            @*Dropdown code*@
+            <div class="col-md-8">
+                @Html.DropDownList("menuList", null, "Select", htmlAttributes: new { @class = "form-control", @Name = "MenuId", id = "MenuId" })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control CalculateTotal", @Name = "Price", @id = "Price", @Readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                @*<input type="text" id="txtUnitPrice"  name="UnitPrice" class="form-control" />*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control CalculateTotal",@Value="1", @Name = "Quantity", @id = "txtQuantity" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                @*<input type="text" id="txtQuantity" name="Quantity" class="form-control" />*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control CalculateTotal", @Name = "Discount", @id = "txtDiscount" } })
+                @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control", @Name = "Total", @id = "txtTotal", @Readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Create" class="btn btn-success btn-block" />
+            </div>
+        </div>
+        <div class="btn btn-info" style="font-size:16px;background-color:lightblue;width:150px;height:25px;margin:5px;padding:5px;border-style:solid;border-color:black;">
+            @Html.ActionLink("Back to List", "index", "total")
+        </div>
+    </div>
+        
+}
+<script>
+    $(document).ready(function () {
+        $('#MenuId').on('change', function () {
+            var selectedVal = $(this).val();  //it is used to take current value
+            //calling Action using ajax
+            $.ajax({
+                dataType: 'json', //jquery bata action call garda always json
+                data: { id: selectedVal },  //passing argument
+                url: "@Url.Action("GetPriceByItemId","Total")",//action to be called
+                success: function (response) {
+                    $("#Price").val(response).trigger("change");  //set response value to some id
+                }
+            });
+        });
+        $(document).on('change',".CalculateTotal",function () {
+            CalculateSubTotal();
+        });
+
+        function CalculateSubTotal() {
+            var Price = $("#Price").val();
+            var Discount = $("#txtDiscount").val();
+            var Quantity = $("#txtQuantity").val();
+            var Total = (Price * Quantity) - Discount;
+            $("#txtTotal").val(parseFloat(Total).toFixed(2));
+        }
+    });
+</script>
+
+
+

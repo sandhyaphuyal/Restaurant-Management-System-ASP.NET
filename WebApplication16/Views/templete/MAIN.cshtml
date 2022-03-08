@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "MAIN";
+}
+
+
+@*<section style="background-color:aliceblue;height:60%;width:100%;display:flex;overflow:hidden;">*@
+<br />
+<br />
+
+<br />
+<div class="container" style="background-color:#34444c;color:antiquewhite;height:660px;width:100%">
+
+    <div style="        background-color: black;
+        height: 80%;
+        width: 130%;
+        display: flex;
+        overflow: hidden;
+        margin: 2px;">
+        <section style="text-align:center;border-style:solid;border-color:black;background-color:darkgreen;height:100%;width:40%;margin:10px;padding:10px;font-size:32px;">
+            <br /> <br /><p style="font-size: 32px;"> Food Management</p>
+            <img src="~/yesh/fodd.jpg" />
+            <p style="font-size:18px;">It is related to adding,updating and deleting food items from list.</p>
+            <div style="font-size:20px;background-color:white;width:200px;height:60px;border-radius:10px;margin:10px;padding:10px;border-style:double;border-color:black;">
+                @Html.ActionLink("lets check it..", "", "Menu")
+            </div>
+        </section>
+        <section style="text-align:center;border-style:solid;border-color:black;background-color:sandybrown;height:90%%;width:40%;margin:10px;padding:10px;font-size:32px;">
+            <p style="font-size:32px;color:aquamarine;">Payment System</p>
+            <img src="~/yesh/payment.jpg" />
+            <p style="font-size:18px;">It is related to what customers bought and realted to paying system.</p>
+            <div style="font-size:20px;background-color:white;width:200px;height:60px;border-radius:10px;margin:10px;padding:10px;border-style:double;border-color:black;">
+                @Html.ActionLink("lets check it..", "Payment", "Main")
+            </div>
+        </section>
+        <section style="text-align:center;border-style:solid;border-color:black;background-color:goldenrod;height:100%;width:40%;margin:10px;padding:10px;font-size:32px;">
+            <br /> <br /><p style="font-size:32px;">Developers</p>
+            <img src="~/yesh/developers.jpg" />
+            <p style="font-size:18px;">To know about developers go here...<br />Click down to know..</p>
+            <div style="font-size: 20px; background-color:white; width: 200px; height: 60px; border-radius: 10px; border-style: double; border-color: black; margin: 10px; padding: 10px; ">
+                @Html.ActionLink("lets check it..", "Developers", "Main")
+            </div>
+
+        </section>
+        <section style="text-align:center;border-style:solid;border-color:black;background-color:firebrick;height:95%;width:40%;margin:5px;padding:5px;font-size:32px;">
+            <p style="font-size:32px;color:aquamarine;">Staff Management</p>
+            <img src="~/yesh/staff.jpg" />
+            <p style="font-size:18px;">It is related to the staff management of the resturant..</p>
+            <div style="        font-size: 20px;
+        background-color: white;
+        width: 210px;
+        height: 60px;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        border-style: double;
+        border-color: black;">
+                @Html.ActionLink("lets check it..", "", "Staff")
+            </div>
+        </section>
+
+
+
+
+    </div>
+    <section style="text-align:center;border-style:double;border-color:black;margin:10px;background-color:white;border-radius:10px;height:50px;width:15%;font-size:24px;">
+        @Html.ActionLink("LOGOUT", "login", "Account")
+    </section>
+    </section>
+
+    </div>

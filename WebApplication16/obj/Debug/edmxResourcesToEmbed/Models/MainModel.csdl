@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Table_food">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Table_cus" Relationship="RestaurantDBModel.FK_Table_cus_Table_food" FromRole="Table_food" ToRole="Table_cus" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PayentTypeId" />
+    </Key>
+    <Property Name="PayentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MyProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table_food" EntityType="Self.Table_food" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+    <EntitySet Name="Table_1" EntityType="RestaurantDBModel.Table_1" />
+    <EntitySet Name="Table_2" EntityType="RestaurantDBModel.Table_2" />
+    <EntitySet Name="Table_new" EntityType="RestaurantDBModel.Table_new" />
+    <EntitySet Name="Table_cus" EntityType="RestaurantDBModel.Table_cus" />
+    <AssociationSet Name="FK_Table_cus_Table_food" Association="RestaurantDBModel.FK_Table_cus_Table_food">
+      <End Role="Table_food" EntitySet="Table_food" />
+      <End Role="Table_cus" EntitySet="Table_cus" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Table_1">
+    <Key>
+      <PropertyRef Name="Foodid" />
+    </Key>
+    <Property Name="Foodid" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Table_2">
+    <Key>
+      <PropertyRef Name="STAFF_ID" />
+    </Key>
+    <Property Name="STAFF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STAFF_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="STAFF_QUALIFICATION" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="STAFF_AGE" Type="Int32" />
+    <Property Name="SPECIALIZATION" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="SALARY" Type="Int32" />
+    <Property Name="PHONE_NUMBER" Type="Int32" />
+    <Property Name="LOCATION" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Table_new">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Table_cus">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MenuId" Type="Int32" />
+    <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Table_food" Relationship="RestaurantDBModel.FK_Table_cus_Table_food" FromRole="Table_cus" ToRole="Table_food" />
+  </EntityType>
+  <Association Name="FK_Table_cus_Table_food">
+    <End Type="RestaurantDBModel.Table_food" Role="Table_food" Multiplicity="0..1" />
+    <End Type="RestaurantDBModel.Table_cus" Role="Table_cus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_food">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="Table_cus">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

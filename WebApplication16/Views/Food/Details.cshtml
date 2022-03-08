@@ -1,0 +1,50 @@
+﻿@model WebApplication16.Models.Table_1
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br /><br />
+
+<section style="border-width: 5px; border-style: solid; border-color: black;width:100%;position:right;margin:15px ;color:black;border-radius: 10px;width:40%;background-color:burlywood;">
+    <h4 style="text-align:center;">DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Foodid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foodid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+</section>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

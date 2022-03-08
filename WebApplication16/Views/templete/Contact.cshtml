@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+}
+
+<!-- Contact Section -->
+<div id="contact" class="text-center" style="background-color: #00e6e6;">
+    <div class="container text-center">
+        <div class="col-md-4">
+           
+        </div>
+        <div class="col-md-4">
+          
+        </div>
+        <div class="col-md-4">
+           
+        </div>
+    </div>
+    <div class="container" style=" background-color: darkblue;">
+        <div class="section-title text-center">
+            <h3 style="color:aquamarine;">Send us a message</h3>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <form name="sentMessage" id="contactForm" novalidate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-control" placeholder="Name" required="required" style="color:aquamarine;" >
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required="required"></textarea>
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div id="success"></div>
+                <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>

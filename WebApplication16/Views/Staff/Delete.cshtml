@@ -1,0 +1,90 @@
+﻿@model WebApplication16.Models.Table_2
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Style.cshtml";
+   
+}
+
+<br /><br /><body style="background-color:lightcoral;"></body>
+      <div style="border-width: 5px; border-style: solid; border-color: black;width:85%;position:right;text-align:center;margin:15px ;color:black;border-radius: 10px;width:95%;background-color:darkgray;">
+          <h4 style="text-align:center;">DELETE</h4>
+          <h3>Are you sure you want to delete this?</h3>
+
+          
+              <dt>
+                  @Html.DisplayNameFor(model => model.STAFF_ID)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.STAFF_ID)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.STAFF_NAME)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.STAFF_NAME)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.STAFF_QUALIFICATION)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.STAFF_QUALIFICATION)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.STAFF_AGE)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.STAFF_AGE)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.SPECIALIZATION)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.SPECIALIZATION)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.SALARY)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.SALARY)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.PHONE_NUMBER)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.PHONE_NUMBER)
+              </dd>
+
+              <dt>
+                  @Html.DisplayNameFor(model => model.LOCATION)
+              </dt>
+
+              <dd>
+                  @Html.DisplayFor(model => model.LOCATION)
+              </dd>
+
+          </dl>
+
+          @using (Html.BeginForm())
+          {
+              @Html.AntiForgeryToken()
+
+              <div class="form-actions no-color">
+                  <input type="submit" value="Delete" class="btn btn-default" /> |
+                  @Html.ActionLink("Back to List", "Index")
+              </div>
+          }
+      </div>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+}
+
+<br /><br /><br />
+<div style="background-color:black;height:55%;width:100%;display:flex;overflow:hidden;">
+    <section style="text-align:center;border-style:solid;border-color:black;background-color:thistle;height:100%;width:40%;margin:30px;padding:10px;font-size:32px;">
+
+        <img src="~/yesh/fastfood.jpg" style="height:240px;width:99%" />
+        @*<p style="font-size: 28px;"> FOOD PAYMENT</p>*@
+        <section style="text-align:center;border-color:black;margin:10px;color:white;background-color:black;height:40px;width:90%;font-size:24px;">
+            @Html.ActionLink("FOOD PAYMENT", "", "total")
+        </section>
+
+
+    </section>
+    <section style="text-align:center;border-style:solid;border-color:black;background-color:thistle;height:100%;width:40%;margin:30px;padding:10px;font-size:24px;">
+
+
+        <img src="~/yesh/sweet.jpg" style="height: 240px; width: 99%;">
+       @* <p style="font-size:28px;">SWEETS BILLING</p>*@
+        <section style="text-align:center;border-color:black;margin:10px;background-color:black;height:40px;width:90%;font-size:24px;color:white;">
+            @Html.ActionLink("SWEETS BILLING", "Index1", "IceShop")
+        </section>
+    </section>
+ 
+</div>
+<section style="text-align:center;border-color:black;border-style:solid;margin:10px;background-color:lightblue;border-radius:10px;height:40px;width:10%;font-size:24px;">
+    @Html.ActionLink("BACK", "MAIN", "templete")
+</section>
